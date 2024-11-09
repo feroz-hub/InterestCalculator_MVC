@@ -142,6 +142,8 @@
     </div>
 
     <button type="submit">Calculate</button>
+    <button type="button" id="clear-btn">Clear</button>  <!-- Clear Button -->
+
 
     <!-- Display the calculated interest below the Calculate button -->
     @if (Model.InterestAmount.HasValue)
@@ -160,8 +162,66 @@
             var interestType = document.getElementById("InterestType").value;
             document.getElementById("frequency-div").style.display = interestType === "Compound" ? "block" : "none";
         });
+        // Show/hide Frequency field based on Interest Type selection
+        document.getElementById("InterestType").addEventListener("change", function () {
+            var interestType = document.getElementById("InterestType").value;
+            document.getElementById("frequency-div").style.display = interestType === "Compound" ? "block" : "none";
+
+            // Clear the result when changing Interest Type
+            clearCalculatedInterest();
+        });
+
     </script>
+<script>
+    // Show/hide Frequency field based on Interest Type selection
+    document.getElementById("InterestType").addEventListener("change", function () {
+        var interestType = document.getElementById("InterestType").value;
+        document.getElementById("frequency-div").style.display = interestType === "Compound" ? "block" : "none";
+
+        // Clear the result when changing Interest Type
+        clearCalculatedInterest();
+    });
+
+    // Reset the result box when any of the input fields change
+    document.getElementById("Principal").addEventListener("input", function() {
+        clearCalculatedInterest();
+    });
+    document.getElementById("Rate").addEventListener("input", function() {
+        clearCalculatedInterest();
+    });
+    document.getElementById("Time").addEventListener("input", function() {
+        clearCalculatedInterest();
+    });
+    document.getElementById("Frequency").addEventListener("change", function() {
+        clearCalculatedInterest();
+    });
+
+    // Function to clear the calculated interest result
+    function clearCalculatedInterest() {
+        var resultBox = document.querySelector(".result-box");
+        if (resultBox) {
+            resultBox.style.display = 'none'; // Hide the result box
+        }
+    }
+
+    // Handle Clear Button click
+    document.getElementById("clear-btn").addEventListener("click", function () {
+        // Reset the form
+        document.querySelector("form").reset();
+
+        // Hide the result box
+        clearCalculatedInterest();
+
+        // Optionally reset the InterestType to default value
+        document.getElementById("InterestType").value = "";
+        document.getElementById("frequency-div").style.display = 'none';
+    });
+</script>
+
 }
+
+
+
 @* @section Scripts { *@
 @*     <script> *@
 @*         document.getElementById("InterestType").addEventListener("change", function () { *@

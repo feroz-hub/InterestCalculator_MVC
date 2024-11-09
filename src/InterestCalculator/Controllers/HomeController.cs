@@ -17,6 +17,7 @@ public class HomeController(ILogger<HomeController> logger) : Controller
     [HttpPost]
     public ActionResult Calculate(InterestViewModel model)
     {
+       // model.InterestAmount=null;
         if (ModelState.IsValid)
         {
             IInterestCalculator calculator = null;

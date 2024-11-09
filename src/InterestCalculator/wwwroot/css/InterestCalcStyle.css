@@ -92,3 +92,18 @@ strong {
     color: #d9534f;
     font-size: 0.9em;
 }
+
+#clear-btn {
+    background-color: #f44336; /* Red background */
+    color: white; /* White text */
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+#clear-btn:hover {
+    background-color: #d32f2f; /* Darker red when hovered */
+}
+
