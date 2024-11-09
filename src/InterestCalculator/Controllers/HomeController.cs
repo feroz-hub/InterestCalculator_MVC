@@ -1,8 +1,8 @@
 using System.Diagnostics;
+using InterestCalculator.Models;
 using Microsoft.AspNetCore.Mvc;
-using IntrestCalculator.Models;
 
-namespace IntrestCalculator.Controllers;
+namespace InterestCalculator.Controllers;
 
 public class HomeController : Controller
 {

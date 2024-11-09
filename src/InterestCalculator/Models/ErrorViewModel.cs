@@ -1,4 +1,4 @@
-namespace IntrestCalculator.Models;
+namespace InterestCalculator.Models;
 
 public class ErrorViewModel
 {
