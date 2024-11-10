@@ -9,6 +9,7 @@ public class CompoundInterest(double principal, double rate, double time, int fr
 
     public double CalculateInterest()
     {
-        return Principal * Math.Pow(1 + Rate / (100 * Frequency), Frequency * Time) - Principal;
+        var interest= Principal * Math.Pow(1 + Rate / (100 * Frequency), Frequency * Time) - Principal;
+        return  Math.Round(interest, 2);
     }
 }
